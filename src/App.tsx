@@ -6,10 +6,9 @@ const JWT =
 
 function App() {
   const [videoName, setVideoName] = useState("");
-  const [videoNumber, setVideoNumber] = useState("");
   const [teacherName, setTeacherName] = useState("");
+  const [seriesName, setSeriesName] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
-
   const [nextVideoUrl, setNextVideoUrl] = useState("");
   const [message, setMessage] = useState("");
 
@@ -46,7 +45,7 @@ function App() {
         description: `This NFT certifies the completion `,
         image: imageUrl,
         attributes: [
-          { trait_type: "Video Number", value: videoNumber },
+          { trait_type: "Series Name", value: seriesName },
           { trait_type: "Teacher Name", value: teacherName },
           { trait_type: "Next Video URL", value: nextVideoUrl },
         ],
@@ -87,15 +86,6 @@ function App() {
           />
         </div>
         <div>
-          <label>動画番号:</label>
-          <input
-            type="number"
-            value={videoNumber}
-            onChange={(e) => setVideoNumber(e.target.value)}
-            required
-          />
-        </div>
-        <div>
           <label>教員名:</label>
           <input
             type="text"
@@ -104,6 +94,15 @@ function App() {
             required
           />
         </div>{" "}
+        <div>
+          <label>シリーズ名:</label> {/* New field for series name */}
+          <input
+            type="text"
+            value={seriesName}
+            onChange={(e) => setSeriesName(e.target.value)}
+            required
+          />
+        </div>
         <div>
           <label>次の動画のURL:</label> {/* 新しく追加 */}
           <input
